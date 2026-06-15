@@ -34,7 +34,7 @@ Give this skill any source code repository and it produces a **scored, professio
 
 ## 🏗️ Architecture
 
-`
+```
 Source Code + Context
         │
         ▼
@@ -83,13 +83,13 @@ Source Code + Context
 │  Stage 7: Report      │  Professional markdown audit report
 │  Assembly             │     Quality gates checklist
 └──────────────────────┘
-`
+```
 
 ---
 
 ## 📂 Project Structure
 
-`
+```
 code-quality-auditor/
 ├── CLAUDE.md                              # Skill-level memory & overview
 ├── PROJECT-detail.md                      # Full technical specification
@@ -127,7 +127,7 @@ code-quality-auditor/
         ├── spring-fintech-payment/        # Java Spring Boot (5 findings, 78/100)
         ├── node-hr-api/                   # Node.js Express (7 findings, 70/100)
         └── legacy-php-ecommerce/          # PHP 5.6 procedural (17 findings, 37/100)
-`
+```
 
 ---
 
@@ -137,15 +137,15 @@ code-quality-auditor/
 
 The skill is invoked through the main harness file:
 
-`
+```
 → Invoke /code-quality-auditor with source code
-`
+```
 
 Claude will follow the 7-stage workflow in skills/main.md, invoking each sub-skill in sequence and producing a professional audit report.
 
 ### Knowledge Pipeline
 
-`ash
+```
 # Install dependencies
 pip install crawl4ai httpx arxiv python-dotenv
 
@@ -157,11 +157,11 @@ python tools/schedule_cron.py --dry-run
 
 # Set up for real
 python tools/schedule_cron.py
-`
+```
 
 ### Running Tests
 
-`ash
+```
 # Unit tests for knowledge_updater.py
 python tests/test_knowledge_updater.py
 
@@ -170,7 +170,7 @@ python tests/run_audit_tests.py
 
 # Single scenario
 python tests/run_audit_tests.py --scenario 1
-`
+```
 
 ---
 
@@ -279,9 +279,9 @@ Before any audit report is delivered, **8 quality gates must pass**:
 
 The roadmap uses a **priority formula** that any engineering manager can act on:
 
-`
+```
 Priority = (Impact × 3) + (Urgency × 2) + (Ease × 1)
-`
+```
 
 | Horizon | Priority Score | Timeline | Example |
 |---|---|---|---|
@@ -295,23 +295,23 @@ Priority = (Impact × 3) + (Urgency × 2) + (Ease × 1)
 ## 📦 Dependencies
 
 ### Knowledge Pipeline
-`ash
+```
 pip install crawl4ai httpx arxiv python-dotenv
-`
+```
 
 ### Test Harness
-`ash
+```
 python tests/run_audit_tests.py              # All scenarios
 python tests/run_audit_tests.py --scenario 3  # Single scenario
 python tests/test_knowledge_updater.py        # Unit tests
-`
+```
 
 ### Cron Scheduler
-`ash
+```
 python tools/schedule_cron.py --dry-run   # Preview
 python tools/schedule_cron.py            # Set up
 python tools/schedule_cron.py --uninstall # Remove
-`
+```
 
 ---
 
